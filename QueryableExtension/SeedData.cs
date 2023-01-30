@@ -7,6 +7,12 @@
         public static District District { get; set; }
         public static Neighborhood Neighborhood { get; set; }
 
+        public static string[] fruits = { "apple", "mango", "orange", "passionfruit", "grape" };
+        public static int[] numbers = { 4, 8, 8, 3, 9, 0, 7, 8, 2 };
+
+
+        
+        
         public static void SeedInit()
         {
             User = new User();
@@ -20,7 +26,9 @@
             User.City.Name = "Angara";
         }
     }
-
+    
+// string[] fruits = { "apple", "mango", "orange", "passionfruit", "grape" };
+// 
 
     public class User
     {

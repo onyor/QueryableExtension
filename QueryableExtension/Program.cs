@@ -7,10 +7,6 @@ SeedData.SeedInit();
 ClassExtension.ChangeMethod(SeedData.User);
 
 // Aggregate
-Aggregate.Test(SeedData.User);
-
-
-
-
-
-
+Aggregate.GetLongestName(SeedData.fruits);
+Aggregate.GetEvenNumber(SeedData.numbers);
+Aggregate.Reversing();
