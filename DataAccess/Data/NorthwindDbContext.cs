@@ -1,9 +1,10 @@
-﻿using Domain.Models;
+﻿using DataAccess.Interface;
+using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Data
 {
-    public class NorthwindDbContext : DbContext
+    public class NorthwindDbContext : DbContext, INorthwindDbContext
     {
         public NorthwindDbContext()
         {
