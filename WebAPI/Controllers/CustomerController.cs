@@ -22,18 +22,18 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
-        [HttpGet("GetTest")]
+        [HttpGet("GetCustomer")]
         public async Task<ActionResult<List<Customer>>> Get()
         {
             try
             {
-                var customerList = await _context.Customers.ToListAsync();
+                var customerList = await _context.Customers.Include(x=>x.Orders).ToListAsync();
 
-                return customerList;
+                return Ok(customerList);
             }
             catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
 
         }

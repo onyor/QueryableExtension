@@ -241,10 +241,6 @@ namespace DataAccess.Data
                 entity.Property(e => e.ShipVia).HasColumnName("ship_via");
                 entity.Property(e => e.ShippedDate).HasColumnName("shipped_date");
 
-                entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("fk_orders_customers");
-
                 entity.HasOne(d => d.Employee).WithMany(p => p.Orders)
                     .HasForeignKey(d => d.EmployeeId)
                     .HasConstraintName("fk_orders_employees");

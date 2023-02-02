@@ -27,7 +27,7 @@ public partial class Customer
 
     public string? Fax { get; set; }
 
-    public virtual ICollection<Order> Orders { get; } = new List<Order>();
+    public virtual ICollection<Order> Orders { get; set; }
 
     public virtual ICollection<CustomerDemographic> CustomerTypes { get; } = new List<CustomerDemographic>();
 }
