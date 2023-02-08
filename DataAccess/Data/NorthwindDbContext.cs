@@ -1,4 +1,4 @@
-﻿using DataAccess.Interface;
+﻿using DataAccess.Abstract;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 

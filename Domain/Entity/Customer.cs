@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Core.Entities;
 
 namespace Domain.Models;
 
-public partial class Customer
+public partial class Customer : IEntity
 {
     public string CustomerId { get; set; } = null!;
 

@@ -1,5 +1,5 @@
+using Business.Abstract;
 using DataAccess.Data;
-using DataAccess.Interface;
 using Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +15,13 @@ namespace WebAPI.Controllers
 
         private readonly ILogger<CustomerController> _logger;
         private readonly NorthwindDbContext _context;
+        private readonly ICustomerManager _customerManager;
 
-        public CustomerController(ILogger<CustomerController> logger, NorthwindDbContext context)
+        public CustomerController(ILogger<CustomerController> logger, NorthwindDbContext context, ICustomerManager customerManager)
         {
             _logger = logger;
             _context = context;
+            _customerManager = customerManager;
         }
 
         [HttpGet("GetCustomer")]
@@ -27,9 +29,9 @@ namespace WebAPI.Controllers
         {
             try
             {
-                var customerList = await _context.Customers.Include(x=>x.Orders).ToListAsync();
+                var result = await _customerManager.GetAll();
 
-                return Ok(customerList);
+                return Ok(result);
             }
             catch (Exception ex)
             {

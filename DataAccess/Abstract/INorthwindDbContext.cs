@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Interface
+﻿namespace DataAccess.Abstract
 {
     public interface INorthwindDbContext
     {
