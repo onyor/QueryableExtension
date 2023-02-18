@@ -1,6 +1,10 @@
 ﻿using DataAccess.Data;
-using DataAccess.Interface;
+using DataAccess.Abstract;
 using Microsoft.EntityFrameworkCore;
+using Business.Abstract;
+using Business.Concrete;
+using DataAccess.EfManagement;
+using Core.DataAccess.Concrete;
 
 namespace WebAPI.Helpers
 {
@@ -16,6 +20,8 @@ namespace WebAPI.Helpers
 
             services.AddScoped<INorthwindDbContext>(provider => provider.GetRequiredService<NorthwindDbContext>());
 
+            services.AddScoped<ICustomerManager, CustomerManager>();
+            services.AddScoped<ICustomerDal, EfCustomerDal>();
 
             return services;
         }
